@@ -7,10 +7,12 @@ const generateTarget = () => {
     let target = Math.floor(Math.random() * 10);
     return target;
 };
-generateTarget()
-console.log(generateTarget());
 
 const compareGuesses = (humanGuess, computerGuess, target) => {
+    if (humanGuess > 9) {
+        alert('Your number is out of range!');
+    };
+
     let humanDiff = (target - humanGuess);
     let computerDiff = (target - computerGuess);
     if (humanDiff < 0) {
@@ -30,9 +32,13 @@ const compareGuesses = (humanGuess, computerGuess, target) => {
 };
 
 const updateScore = winner => {
-    if (winner === human) {
+    if (winner === 'human') {
         humanScore += 1;
-    } else if (winner === computer) {
+    } else if (winner === 'computer') {
         computerScore += 1;
     };
+};
+
+const advanceRound = () => {
+    currentRoundNumber += 1;
 };
